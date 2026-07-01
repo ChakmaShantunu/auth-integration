@@ -16,11 +16,11 @@ const Register = () => {
 
         //create user
         createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
+            .then(result => {
                 const user = result.user;
                 console.log(user);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log(error.message);
             })
     }
