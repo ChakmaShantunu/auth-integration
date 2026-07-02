@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { AuthContext } from "./AuthContext";
 import { auth } from "../firebase.init";
+import { useEffect } from "react";
 
 
 const AuthProvider = ({ children }) => {
@@ -13,13 +14,19 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    onAuthStateChanged(auth, (currentUser) => {
-        if (currentUser) {
-            console.log("has current user", currentUser);
-        } else {
-            console.log("User has logged out");
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                console.log("has current user", currentUser);
+            } else {
+                console.log("User has logged out");
+            }
+        })
+        return () => {
+            unsubscribe();
         }
-    })
+    }, [])
 
     const userInfo = {
         createUser,
