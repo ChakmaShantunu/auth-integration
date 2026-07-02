@@ -13,6 +13,7 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
+        // login user
         signInUser(email, password)
             .then(result => {
                 console.log(result);
