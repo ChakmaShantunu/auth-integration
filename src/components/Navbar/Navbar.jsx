@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import "./Navbar.css"
 import { use } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -7,8 +7,8 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
 
-    const userInfo = use(AuthContext);
-    console.log(userInfo);
+    const { user } = use(AuthContext);
+    console.log(user);
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -36,7 +36,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {user ? <a className="btn">Sign Out</a> : <Link to="/login" className="btn">Login</Link>}
             </div>
         </div>
     );
