@@ -46,7 +46,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {user ? <a onClick={handleSignOut} className="btn">Sign Out</a> : <Link to="/login" className="btn">Login</Link>}
+                {user ?
+                    <>
+                        <span className="mr-2">{user.email}</span>
+                        <a onClick={handleSignOut} className="btn">Sign Out</a>
+                    </>
+                    : <Link to="/login" className="btn">Login</Link>}
             </div>
         </div>
     );
