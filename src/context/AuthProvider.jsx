@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -26,8 +27,10 @@ const AuthProvider = ({ children }) => {
             if (currentUser) {
                 console.log("has current user", currentUser);
                 setUser(currentUser);
+                setLoading(false);
             } else {
                 console.log("User has logged out");
+                setLoading(false);
             }
         })
         return () => {
