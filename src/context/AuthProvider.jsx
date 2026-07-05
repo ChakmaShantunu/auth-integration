@@ -33,9 +33,10 @@ const AuthProvider = ({ children }) => {
                 setLoading(false);
             } else {
                 console.log("User has logged out");
-                setLoading(false);
+                setUser(null)
             }
-        })
+            setLoading(false);
+        });
         return () => {
             unsubscribe();
         }
