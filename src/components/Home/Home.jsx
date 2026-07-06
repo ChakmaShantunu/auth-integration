@@ -98,15 +98,16 @@ const Home = () => {
         <div>
 
             {/* Hero Section */}
-            <section>
-                <div>
+            <section className="pt-16 md:pt-20 pb-24 bg-linear-to-br from-base-200 via-base-100 to-base-200">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="flex flex-col lg:flex-row items-center gap-12">
                         {/* Hero Content */}
                         <motion.div className="flex-1 text-center lg:text-left" variants={containerVariants} initial="hidden" animate="visible">
-                            <div>
+
+                            <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 text-primary bg-primary/10" variants={itemVariants} whileHover={{ scale: 1.05 }}>
                                 <FiZap className="text-sm" />
-                                <span>Welcome to the future</span>
-                            </div>
+                                <span className="text-sm font-medium">Welcome to the future</span>
+                            </motion.div>
 
                             <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-base-content leading-tight mb-6" variants={itemVariants}>
                                 Build Amazing <br />
