@@ -95,11 +95,11 @@ const Home = () => {
         { label: 'Awards Won', value: Math.floor(counter.awards).toLocaleString(), icon: FiAward },
     ];
     return (
-        <div>
+        <div className="min-h-screen bg-base-200">
 
             {/* Hero Section */}
             <section className="pt-16 md:pt-20 pb-24 bg-linear-to-br from-base-200 via-base-100 to-base-200">
-                <div className="container mx-auto px-4 md:px-6">
+                <div className="container max-w-7xl mx-auto px-4 md:px-6">
                     <div className="flex flex-col lg:flex-row items-center gap-12">
                         {/* Hero Content */}
                         <motion.div className="flex-1 text-center lg:text-left" variants={containerVariants} initial="hidden" animate="visible">
