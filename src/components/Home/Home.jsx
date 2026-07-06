@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { motion } from 'motion/react';
+import { motion, scale } from 'motion/react';
 import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight } from "react-icons/fi"
+import { type } from "firebase/firestore/pipelines";
 
 // Animation variants
 const containerVariants = {
@@ -10,6 +11,19 @@ const containerVariants = {
         transition: {
             staggerChildren: 0.1,
             delayChildren: 0.3
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 12
         }
     }
 };
@@ -102,19 +116,21 @@ const Home = () => {
 
                             <p>We combine creativity and technology to deliver exceptional digital experiences that drive results for your business.</p>
 
-                            <div>
-                                <button>Get Started
+                            
+                            {/* buttons */}
+                            <motion.div initial="hidden" animate="visible" className="flex flex-wrap gap-2 justify-center lg:justify-start" variants={containerVariants}>
+                                <motion.button className="btn btn-primary btn-lg" variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>Get Started
                                     <FiArrowRight className="ml-2" />
-                                </button>
-                                <button>
+                                </motion.button>
+                                <motion.button className="btn btn-ghost btn-lg" variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                     Learn More
-                                </button>
-                            </div>
+                                </motion.button>
+                            </motion.div>
 
                             {/* stats */}
-                            <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12" variants={containerVariants}>
+                            <motion.div initial="hidden" animate="visible" className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12" variants={containerVariants}>
                                 {statsData.map((stat, index) => (
-                                    <motion.div key={index} className="bg-base-50/100 backdrop-blur-sm rounded-xl p-4 shadow-lg text-center">
+                                    <motion.div key={index} className="bg-base-50/100 backdrop-blur-sm rounded-xl p-4 shadow-lg text-center" variants={itemVariants} whileTap={{ scale: 1.05, y: -5 }}>
                                         <div className="flex items-center justify-center text-2xl md:text-3xl font-bold text-primary gap-2">
                                             <stat.icon></stat.icon>
                                             {stat.value}
