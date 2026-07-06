@@ -102,21 +102,21 @@ const Home = () => {
                 <div>
                     <div className="flex flex-col lg:flex-row items-center gap-12">
                         {/* Hero Content */}
-                        <div>
+                        <motion.div className="flex-1 text-center lg:text-left" variants={containerVariants} initial="hidden" animate="visible">
                             <div>
                                 <FiZap className="text-sm" />
                                 <span>Welcome to the future</span>
                             </div>
 
-                            <h1>
+                            <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-base-content leading-tight mb-6" variants={itemVariants}>
                                 Build Amazing <br />
                                 <span className="text-primary">Digital Products</span> <br />
                                 With Us
-                            </h1>
+                            </motion.h1>
 
-                            <p>We combine creativity and technology to deliver exceptional digital experiences that drive results for your business.</p>
+                            <motion.p className="text-lg max-w-2xl mx-auto lg:mx-0 mb-8 text-base-content/70" variants={itemVariants}>We combine creativity and technology to deliver exceptional digital experiences that drive results for your business.</motion.p>
 
-                            
+
                             {/* buttons */}
                             <motion.div initial="hidden" animate="visible" className="flex flex-wrap gap-2 justify-center lg:justify-start" variants={containerVariants}>
                                 <motion.button className="btn btn-primary btn-lg" variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>Get Started
@@ -128,7 +128,7 @@ const Home = () => {
                             </motion.div>
 
                             {/* stats */}
-                            <motion.div initial="hidden" animate="visible" className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12" variants={containerVariants}>
+                            <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12" variants={containerVariants}>
                                 {statsData.map((stat, index) => (
                                     <motion.div key={index} className="bg-base-50/100 backdrop-blur-sm rounded-xl p-4 shadow-lg text-center" variants={itemVariants} whileTap={{ scale: 1.05, y: -5 }}>
                                         <div className="flex items-center justify-center text-2xl md:text-3xl font-bold text-primary gap-2">
@@ -139,7 +139,7 @@ const Home = () => {
                                     </motion.div>
                                 ))}
                             </motion.div>
-                        </div>
+                        </motion.div>
 
 
                         {/* Hero Image */}
@@ -149,6 +149,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
         </div>
     );
 };
