@@ -172,7 +172,16 @@ const Home = () => {
                         <motion.div className="flex-1">
                             <div className="relative">
                                 <motion.div animate={floatAnimation.animate} initial={floatAnimation.initial}>
-                                    <div></div>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        <div></div>
+                                        <div>
+                                            <div></div>
+                                            <motion.div className="bg-base-100 rounded-2xl p-4 shadow-lg" whileTap={{ scale: 1.05 }}>
+                                                <FiShield className="text-error text-2xl"></FiShield>
+                                                <p className="text-sm font-medium mt-2">Security</p>
+                                            </motion.div>
+                                        </div>
+                                    </div>
                                     <div className="absolute -bottom-4 -right-4 bg-primary text-primary-content p-4 rounded-full">
                                         <FiStar className="text-2xl"></FiStar>
                                     </div>
