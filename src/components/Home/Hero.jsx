@@ -234,7 +234,7 @@ const Homepage = () => {
     return (
         <div className="min-h-screen bg-base-200">
             {/* Hero Section */}
-            <section id="home" className="pt-16 md:pt-20 pb-16 md:pb-24 bg-gradient-to-br from-base-200 via-base-100 to-base-200">
+            <section id="home" className="pt-16 md:pt-20 pb-16 md:pb-24 bg-linear-to-br from-base-200 via-base-100 to-base-200">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="flex flex-col lg:flex-row items-center gap-12">
                         {/* Hero Content */}

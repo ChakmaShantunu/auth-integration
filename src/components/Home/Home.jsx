@@ -144,9 +144,20 @@ const Home = () => {
 
 
                         {/* Hero Image */}
-                        <div>
+                        <motion.div className="flex-1">
+                            <div className="relative">
+                                <div></div>
 
-                        </div>
+
+                                {/* Floating Badges */}
+                                <motion.div className="absolute -top-4 -right-4 bg-success text-success-content rounded-full px-4 py-2 text-sm font-bold shadow-lg">
+                                    ⭐ 5 Stars
+                                </motion.div>
+                                <motion.div className="absolute -bottom-4 -left-4 bg-secondary text-secondary-content rounded-full px-4 py-2 text-sm font-bold shadow-lg">
+                                    🚀 Fast
+                                </motion.div>
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
