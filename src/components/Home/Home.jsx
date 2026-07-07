@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { motion, scale } from 'motion/react';
+import { easeInOut, motion, scale } from 'motion/react';
 import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight } from "react-icons/fi"
 import { type } from "firebase/firestore/pipelines";
+
 
 // Animation variants
 const containerVariants = {
@@ -24,6 +25,30 @@ const itemVariants = {
             type: "spring",
             stiffness: 100,
             damping: 12
+        }
+    }
+};
+
+const floatAnimation = {
+    initial: { y: 0 },
+    animate: {
+        y: [0, -15, 0],
+        transition: {
+            duration: 3,
+            repeat: Infinity,
+            ease: easeInOut
+        }
+    }
+};
+
+const pulseAnimation = {
+    initial: { scale: 1 },
+    animate: {
+        scale: [1, 1.05, 1],
+        transition: {
+            duration: 2,
+            repeat: Infinity,
+            ease: easeInOut
         }
     }
 };
@@ -150,10 +175,10 @@ const Home = () => {
 
 
                                 {/* Floating Badges */}
-                                <motion.div className="absolute -top-4 -right-4 bg-success text-success-content rounded-full px-4 py-2 text-sm font-bold shadow-lg">
+                                <motion.div className="absolute -top-4 -right-4 bg-success text-success-content rounded-full px-4 py-2 text-sm font-bold shadow-lg" animate={pulseAnimation.animate} initial={pulseAnimation.initial}>
                                     ⭐ 5 Stars
                                 </motion.div>
-                                <motion.div className="absolute -bottom-4 -left-4 bg-secondary text-secondary-content rounded-full px-4 py-2 text-sm font-bold shadow-lg">
+                                <motion.div className="absolute -bottom-4 -left-4 bg-secondary text-secondary-content rounded-full px-4 py-2 text-sm font-bold shadow-lg" animate={floatAnimation.animate} initial={floatAnimation.initial}>
                                     🚀 Fast
                                 </motion.div>
                             </div>
