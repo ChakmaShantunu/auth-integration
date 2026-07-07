@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { easeInOut, motion, scale } from 'motion/react';
-import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight } from "react-icons/fi"
+import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight, FiStar } from "react-icons/fi"
 import { type } from "firebase/firestore/pipelines";
 
 
@@ -171,7 +171,12 @@ const Home = () => {
                         {/* Hero Image */}
                         <motion.div className="flex-1">
                             <div className="relative">
-                                <div></div>
+                                <motion.div animate={floatAnimation.animate} initial={floatAnimation.initial}>
+                                    <div></div>
+                                    <div className="absolute -bottom-4 -right-4 bg-primary text-primary-content p-4 rounded-full">
+                                        <FiStar className="text-2xl"></FiStar>
+                                    </div>
+                                </motion.div>
 
 
                                 {/* Floating Badges */}
