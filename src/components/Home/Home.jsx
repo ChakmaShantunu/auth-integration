@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { easeInOut, motion, scale } from 'motion/react';
-import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight, FiStar, FiCheck, FiTrendingUp } from "react-icons/fi"
+import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight, FiStar, FiCheck, FiTrendingUp, FiHeart } from "react-icons/fi"
 import { type } from "firebase/firestore/pipelines";
 
 
@@ -29,18 +29,33 @@ const itemVariants = {
     }
 };
 
-// const scaleIn = {
-//     hidden: { scale: 0.8, opacity: 0 },
+// const fadeInUp = {
+//     hidden: { y: 50, opacity: 0 },
 //     visible: {
-//         scale: 1,
+//         y: 0,
 //         opacity: 1,
 //         transition: {
 //             type: "spring",
-//             stiffness: 200,
-//             damping: 20
+//             stiffness: 100,
+//             damping: 15,
+//             duration: 0.6
 //         }
 //     }
 // };
+
+const fadeInUp = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 15,
+            duration: 0.6
+        }
+    }
+};
 
 const scaleIn = {
     hidden: { scale: 0.8, opacity: 0 },
@@ -245,7 +260,24 @@ const Home = () => {
                     <motion.div></motion.div>
 
                     <div className="flex flex-col lg:flex-row items-center gap-12">
-                        <motion.div></motion.div>
+                        <motion.div className="flex-1" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                            <div className="relative">
+
+                                <motion.div className="bg-linear-to-br from-primary/20 to-secondary/20 rounded-3xl p-8" whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 200 }}>
+                                    <div className="aspect-w-16 aspect-h-9 bg-base-200 rounded-xl p-8 flex items-center justify-center">
+                                        <div className="text-center">
+                                            <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="text-6xl mb-6">🚀</motion.div>
+                                            <h3 className="text-2xl font-bold">Innovation at Heart</h3>
+                                            <p className="text-base-content/70 mt-2">Building the future, one line of code at a time</p>
+                                        </div>
+                                    </div>
+                                </motion.div>
+
+                                <motion.div className="absolute -bottom-4 -right-4 bg-primary text-primary-content rounded-2xl p-6 shadow-xl" animate={floatAnimation.animate} initial={floatAnimation.initial}>
+                                    <FiHeart className="text-3xl"></FiHeart>
+                                </motion.div>
+                            </div>
+                        </motion.div>
 
                         <motion.div className="flex-1 space-y-6" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                             <motion.h3 className="text-2xl font-bold" variants={itemVariants}>Why Choose us?</motion.h3>
