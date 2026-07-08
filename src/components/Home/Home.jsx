@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { easeInOut, motion, scale } from 'motion/react';
-import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight, FiStar } from "react-icons/fi"
+import { FiDollarSign, FiUsers, FiBriefcase, FiAward, FiCode, FiGlobe, FiZap, FiShield, FiArrowRight, FiStar, FiCheck, FiTrendingUp } from "react-icons/fi"
 import { type } from "firebase/firestore/pipelines";
 
 
@@ -233,6 +233,40 @@ const Home = () => {
                                     🚀 Fast
                                 </motion.div>
                             </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* About Section */}
+
+            <section className="bg-base-100 py-16 md:py-24">
+                <div className="container mx-auto px-4 md:px-6">
+                    <motion.div></motion.div>
+
+                    <div className="flex flex-col lg:flex-row items-center gap-12">
+                        <motion.div></motion.div>
+
+                        <motion.div className="flex-1 space-y-6" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                            <motion.h3 className="text-2xl font-bold" variants={itemVariants}>Why Choose us?</motion.h3>
+                            <motion.div className="space-y-4" variants={containerVariants}>
+                                {
+                                    [
+                                        { icon: FiUsers, text: 'Expert team with 10+ years of experience' },
+                                        { icon: FiCheck, text: 'Proven track record of success' },
+                                        { icon: FiStar, text: '500+ satisfied clients worldwide' },
+                                        { icon: FiTrendingUp, text: 'Cutting-edge technology solutions' },
+                                    ].map((item, index) => (
+                                        <motion.div key={index} className="flex items-center gap-4 p-4 bg-base-200 rounded-xl" variants={itemVariants} whileHover={{ x: 10 }}>
+                                            <div className="p-2 bg-primary/10 text-primary rounded-lg">
+                                                <item.icon className="text-2xl"></item.icon>
+                                            </div>
+                                            <span className="text-base-content">{item.text}</span>
+                                        </motion.div>
+                                    ))
+
+                                }
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>
