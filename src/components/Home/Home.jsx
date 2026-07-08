@@ -256,8 +256,12 @@ const Home = () => {
             {/* About Section */}
 
             <section className="bg-base-100 py-16 md:py-24">
-                <div className="container mx-auto px-4 md:px-6">
-                    <motion.div></motion.div>
+                <div className="container max-w-7xl mx-auto px-4 md:px-6">
+                    <motion.div className="text-center mb-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                        <motion.h2 className="text-3xl md:text-4xl font-bold text-base-content" variants={itemVariants}>About <span className="text-primary">Us</span></motion.h2>
+
+                        <motion.p className="text-base-content/70 max-w-2xl mx-auto mt-4" variants={itemVariants}>We're passionate about creating digital solutions that make a difference</motion.p>
+                    </motion.div>
 
                     <div className="flex flex-col lg:flex-row items-center gap-12">
                         <motion.div className="flex-1" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
