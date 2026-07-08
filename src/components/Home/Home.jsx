@@ -173,7 +173,13 @@ const Home = () => {
                             <div className="relative">
                                 <motion.div animate={floatAnimation.animate} initial={floatAnimation.initial}>
                                     <div className="grid grid-cols-2 gap-2">
-                                        <div></div>
+                                        <div className="space-y-4">
+                                            <div></div>
+                                            <motion.div className="bg-base-100 rounded-xl p-4 shadow-lg" whileTap={{ scale: 1.05 }}>
+                                                <FiGlobe className="text-secondary text-2xl"></FiGlobe>
+                                                <p className="text-sm font-medium mt-2">Design</p>
+                                            </motion.div>
+                                        </div>
                                         <div className="space-y-4 mt-8">
                                             <motion.div className="bg-base-100 rounded-2xl p-4 shadow-lg" whileTap={{ scale: 1.05 }}>
                                                 <FiZap className="text-error text-2xl"></FiZap>
