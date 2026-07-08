@@ -29,6 +29,32 @@ const itemVariants = {
     }
 };
 
+// const scaleIn = {
+//     hidden: { scale: 0.8, opacity: 0 },
+//     visible: {
+//         scale: 1,
+//         opacity: 1,
+//         transition: {
+//             type: "spring",
+//             stiffness: 200,
+//             damping: 20
+//         }
+//     }
+// };
+
+const scaleIn = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            stiffness: 200,
+            damping: 20
+        }
+    }
+};
+
 const floatAnimation = {
     initial: { y: 0 },
     animate: {
@@ -161,17 +187,16 @@ const Home = () => {
                                             <stat.icon></stat.icon>
                                             {stat.value}
                                         </div>
-                                        <div>{stat.label}</div>
+                                        <div className="text-sm text-base-content/60 mt-1">{stat.label}</div>
                                     </motion.div>
                                 ))}
                             </motion.div>
                         </motion.div>
 
-
                         {/* Hero Image */}
-                        <motion.div className="flex-1">
+                        <motion.div className="flex-1" variants={scaleIn} initial="hidden" animate="visible">
                             <div className="relative">
-                                <motion.div animate={floatAnimation.animate} initial={floatAnimation.initial}>
+                                <motion.div className="bg-primary/10 rounded-3xl p-8 md:p-12" animate={floatAnimation.animate} initial={floatAnimation.initial}>
                                     <div className="grid grid-cols-2 gap-2">
                                         <div className="space-y-4">
                                             <motion.div className="bg-base-100 rounded-xl shadow-lg p-4" whileTap={{ scale: 1.05 }}>
@@ -212,7 +237,6 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
         </div>
     );
 };
